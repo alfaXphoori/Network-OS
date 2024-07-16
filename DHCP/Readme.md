@@ -7,7 +7,7 @@ sudo yum install dhcp-server -y
 ```
 Config DHCP
 ```bash
-nano /etc/dhcp/dhcpd.conf
+sudo nano /etc/dhcp/dhcpd.conf
 ```
 Insert cmd in dhcpd.conf
 ```bash
