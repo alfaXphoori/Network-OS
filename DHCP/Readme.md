@@ -2,8 +2,8 @@
 ## DHCP Server
 Install DHCP Server on Cent OS
 ```bash
-yum update
-yum install dhcp-server -y
+sudo yum update
+sudo yum install dhcp-server -y
 ```
 Config DHCP
 ```bash
