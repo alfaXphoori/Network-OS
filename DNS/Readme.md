@@ -146,3 +146,5 @@ nslookup ns1.ce.local
 ```bash
 nslookup 192.168.100.2
 ```
+
+#### We did it
