@@ -1,114 +1,149 @@
 
 ## DNS Server
-Install DNS Server on Cent OS
+#### Install DNS Server on Cent OS
 ```bash
-yum install bind -y
+yum install -y bind bind-utils
 ```
-Config file resolv.conf
+#### Test Package install bind
 ```bash
-sudo nano /etc/resolv.conf
+rpm -qa| grep bind
 ```
-Insert cmd in resolv.conf
+#### Start dns server 
 ```bash
-search localdomain
-nameserver 192.168.100.2
+systemctl start named
+systemctl enable named
 ```
-Config file named.conf
+#### Change Hostname 
++ Change hostname to ns1.ce.local
+```bash
+nmtui
+```
+
+#### Config file named.conf
 ```bash
 sudo nano /etc/named.conf
 ```
-Insert cmd in named.conf\
-:Line 11 Add Ip address 
+#### Insert ip Address in named.conf
++ Ip address in Line 
 ```bash
 listen-on port 53 { 127.0.0.1; 192.168.100.2;};
 ```
-:Line 19 Add Ip address
++ Add Ip address
 ```bash
 allow-query     { localhost; 192.168.100.0/24;};
 ```
-:Line 57 Add Zone
+#### Create Forward and Reverse Lookup Zone file.
 ```bash
-zone "ce.ksu" IN{
+sudo nano /etc/named.rfc1912.zones
+```
++ Forward Zone
+```bash
+zone "ce.local" {
         type master;
-        file "ce.ksu.direct";
-        allow-update {none;};
-};
-zone "100.168.192.in-addr.arpa" IN {
-        type master;
-        file "ce.ksu.inverse";
-        allow-update {none;};
+        file "forward.ce.local";
 };
 ```
-Go to /var/named
++ Reverse Zone
 ```bash
-sudo su
-cd /var/named/
+zone "100.168.192.in-addr.arpa" {
+        type master;
+        file "reverse.ce.local";
+};
 ```
 
-Copy file named.localhot to ce.ksu.direct
+#### Create forward lookup file
 ```bash
-cp named.localhost ce.ksu.direct
+sudo nano /var/named/forward.ce.local
+```
++ Add config file
+```bash
+$TTL 604800
+@               IN      SOA     ns1.ce.local. root.ns1.ce.local. (
+                                2 ; Serial
+                                604800 ; Refresh
+                                86400 ; Retry
+                                2419200 ; Expire
+                                604800 ) ; Negative Cache TTL
+@               IN      NS      ns1.ce.local.
+ns1             IN      A       192.168.100.2
+ftp             IN      A       192.168.100.2
+www             IN      A       192.168.100.2
+@               IN      AAAA    ::1
+```
+#### Create reverse lookup file
+```bash
+sudo nano /var/named/reverse.ce.local
+```
++ Add config file
+```bash
+$TTL 604800
+@               IN      SOA ns1.ce.local. root.ns1.ce.local. (
+                                1 ; Serial
+                                604800 ; Refresh
+                                86400 ; Retry
+                                2419200 ; Expire
+                                604800 ) ; Negative Cache TTL
+@               IN      NS      ns1.ce.local.
+ns1             IN      A       192.168.100.2
+2               IN      PTR     ns1.ce.local
 ```
 
-Edit file ce.ksu.direct
+#### Test config file
 ```bash
-$TTL 1D
-@       IN SOA  server.ce.ksu.          root.ce.ksu. (
-                                        0       ; serial
-                                        1D      ; refresh
-                                        1H      ; retry
-                                        1W      ; expire
-                                        3H )    ; minimum
-        IN      NS              server.ce.ksu.
-server  IN      A               192.168.100.2
-www     IN      CNAME           server.ce.ksu.
+named-checkconf
+named-checkzone ce.local /var/named/forward.ce.local
+named-checkzone ce.local /var/named/reverse.ce.local
 ```
 
-Copy ce.ksu.direct to ce.ksu.inverse
+#### Config Firewall
 ```bash
-cp ce.ksu.direct ce.ksu.inverse
+sudo firewall-cmd --add-service=dns --permanent
+sudo firewall-cmd --reload
 ```
 
-Edit file ce.ksu.inverse
+#### Set Premission file
 ```bash
-$TTL 1D
-@       IN SOA  server.ce.ksu.          root.ce.ksu. (
-                                        0       ; serial
-                                        1D      ; refresh
-                                        1H      ; retry
-                                        1W      ; expire
-                                        3H )    ; minimum
-        IN      NS              server.ce.ksu.
-server  IN      A               192.168.100.2
-100     IN      PTR           server.ce.ksu.
+chmod 640 /var/named/forward.ce.local
+chmod 640 /var/named/reverse.ce.local
 ```
 
-Check named 
+#### Restart dns server 
 ```bash
-named-checkzone ce.ksu /var/named/ce.ksu.direct
-named-checkzone ce.ksu /var/named/ce.ksu.inverse
-```
-Set Premission file
-```bash
-chmod 640 ce.ksu.direct 
-chmod 640 ce.ksu.inverse
-chown -R named:named ce.ksu.direct
-chown -R named:named ce.ksu.inverse
-```
-
-Start Service 
-```bash
-systemctl restart named
+systemctl start named
 systemctl enable named
 ```
 
-Check Service Running
+#### Config file resolv.conf
+```bash
+sudo nano /etc/resolv.conf
+```
++ Insert cmd in resolv.conf
+```bash
+search ce.local
+nameserver 192.168.100.2
+```
+
+#### Check Service Running
 ```bash
 systemctl status named
 ```
 
-Config Firewall
+#### Verify DNS Server
++ Check by name
 ```bash
-sudo firewall-cmd --add-service=dns --permanent
-sudo firewall-cmd --reload
+dig ns1.ce.local
+```
++ Check by ip
+```bash
+dig -x 192.168.100.2
+```
+
+#### Verify DNS Server by nslookup
++ Check by name
+```bash
+nslookup ns1.ce.local
+```
++ Check by ip
+```bash
+nslookup 192.168.100.2
 ```
