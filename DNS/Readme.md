@@ -2,7 +2,7 @@
 ## DNS Server
 #### Install DNS Server on Cent OS
 ```bash
-sudo yum install -y bind bind-utils
+yum install -y bind bind-utils
 ```
 #### Test Package install bind
 ```bash
@@ -12,6 +12,11 @@ rpm -qa| grep bind
 ```bash
 systemctl start named
 systemctl enable named
+```
+#### Config Firewall
+```bash
+sudo firewall-cmd --add-service=dns --permanent
+sudo firewall-cmd --reload
 ```
 #### Change Hostname 
 + Change hostname to ns1.ce.local
@@ -93,12 +98,6 @@ ns1             IN      A       192.168.100.2
 named-checkconf
 named-checkzone ce.local /var/named/forward.ce.local
 named-checkzone ce.local /var/named/reverse.ce.local
-```
-
-#### Config Firewall
-```bash
-sudo firewall-cmd --add-service=dns --permanent
-sudo firewall-cmd --reload
 ```
 
 #### Set Premission file
