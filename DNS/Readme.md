@@ -2,7 +2,7 @@
 ## DNS Server
 #### Install DNS Server on Cent OS
 ```bash
-yum install -y bind bind-utils
+sudo yum install -y bind bind-utils
 ```
 #### Test Package install bind
 ```bash
