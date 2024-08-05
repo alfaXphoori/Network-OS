@@ -12,7 +12,7 @@ rpm -qa| grep smb
 #### Start and enable smb service 
 ```bash
 systemctl start smb
-systemctl enable  smb
+systemctl enable smb
 ```
 #### Config Firewall
 ```bash
