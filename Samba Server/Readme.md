@@ -42,15 +42,15 @@ sudo nano /etc/samba/smb.conf
         guest ok = yes
         guest only = yes
         read only = no
-        valid users = user1
+        valid users = smbuser
 ```
 #### Create a user on samba 
 ```bash
-useradd -s /sbin/nologin user1
+useradd -s /sbin/nologin smbuser
 ```
 + Assign  password for user
 ```bash
-smbpasswd -a user1
+smbpasswd -a smbuser
 ```
 #### Restart smb service
 ```bash
