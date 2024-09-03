@@ -1,4 +1,4 @@
-## MariaDB Server
+## PhpMyAdmin
 #### Install PHP
 ```bash
 sudo yum install php php-mysqlnd php-json php-mbstring
