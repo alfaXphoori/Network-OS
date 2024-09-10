@@ -3,7 +3,7 @@
 
 #### Install Apache Packages on Cent OS
 ```bash
-sudo yum install httpd httpd-tools
+sudo yum install httpd httpd-tools -y
 ```
 #### Run service of Apache server
 ```bash
