@@ -37,3 +37,14 @@ docker ps
 ```bash
 docker kill xxxx
 ```
+
+#### List Image on Doker 
+```bash
+docker image
+```
+
+#### Remove Image on Docker
+* xxx = Image ID
+```bash
+docker rmi -f xxx
+```
