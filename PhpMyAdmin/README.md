@@ -36,7 +36,7 @@ sudo yum install phpmyadmin
 ```bash
 sudo nano /etc/httpd/conf.d/phpMyAdmin.conf
 ```
-* Insert code below <Directory /usr/share/phpMyAdmin/> Require local (line 14) in phpMyAdmin.conf
+* Change Require local to Require all granted in <Directory /usr/share/phpMyAdmin/> 
 ```bash
 Require all granted
 ```
