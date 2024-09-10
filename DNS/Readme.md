@@ -102,13 +102,13 @@ named-checkzone ce.local /var/named/reverse.ce.local
 
 #### Set Premission file
 ```bash
-chmod 640 /var/named/forward.ce.local
-chmod 640 /var/named/reverse.ce.local
+chmod 777 /var/named/forward.ce.local
+chmod 777 /var/named/reverse.ce.local
 ```
 
 #### Restart dns server 
 ```bash
-systemctl start named
+systemctl restart named
 systemctl enable named
 ```
 
