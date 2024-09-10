@@ -34,6 +34,8 @@ CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
 #### Grant user privilege
 ```bash
 GRANT ALL PRIVILEGES ON *.* TO 'username'@localhost IDENTIFIED BY 'userpassword';
+```
+```bash
 FLUSH PRIVILEGES;
 ```
 #### Show user of MariaDB
