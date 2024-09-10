@@ -36,11 +36,7 @@ sudo yum install phpmyadmin
 ```bash
 sudo nano /etc/httpd/conf.d/phpMyAdmin.conf
 ```
-* Insert code below Require local (line 14) in phpMyAdmin.conf
-<Directory /usr/share/phpMyAdmin/>
-   AddDefaultCharset UTF-8
-   Require local
-</Directory> 
+* Insert code below <Directory /usr/share/phpMyAdmin/> Require local (line 14) in phpMyAdmin.conf
 ```bash
 Require all granted
 ```
