@@ -1,7 +1,7 @@
 ## Docker MySQL & PhpMyAdmin
 #### Pull Docker image MySQL
 ```bash
-dcoker pull mysql
+docker pull mysql
 ```
 
 #### Run Docker MySql
@@ -24,7 +24,7 @@ show databases;
 
 #### Pull Docker image PhpMyAdmin
 ```bash
-dcoker pull phpmyadmin/phpmyadmin
+docker pull phpmyadmin/phpmyadmin
 ```
 
 #### Run Docker PhpMyAdmin
