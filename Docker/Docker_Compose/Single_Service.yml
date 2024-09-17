@@ -1,0 +1,8 @@
+services:
+  websv:
+    image: php:8.3-apache
+    container_name: apache-php
+    ports:
+      - 8080:80
+    volumes:
+      - .:/var/www/html
