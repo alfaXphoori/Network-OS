@@ -37,3 +37,16 @@ docker compose -f xxx.yml up
 * if run backgroud insert -d
 ```bash
 docker compose -f xxx.yml up -d
+```
+
+#### Change Dir of Mysql
+* Create Dir 
+```bash
+cd /home/xxx/Docker
+mkdir mysql-db
+```
+* insert volumes to db
+```bash
+volumes:
+    - ./mysql-db:/var/lib/mysql
+```
