@@ -1,0 +1,48 @@
+services:
+  db:
+    image: mysql
+    container_name: myslq-db
+    ports:
+      - 13306:3306
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: user1234
+      MYSQL_USER: test
+      MYSQL_PASSWORD: user1234
+      MYSQL_DATABASE: ceuser
+    networks:
+      - backend
+
+  websv:
+    image: php:8.3-apache
+    container_name: apache-php
+    ports:
+      - 8080:80
+      - 8081:80
+    volumes:
+      - .:/var/www/html
+    networks:
+      - backend
+      - frontend
+
+  pma:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 8088:80
+    environment:
+      PMA_HOST: db
+      MYSQL_USER: test
+      MYSQL_ROOT_PASSWORD: user1234
+    networks:
+      - backend
+
+networks:
+  backend:
+  frontend:
+
+volumes:
+  mysql-data:
