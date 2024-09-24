@@ -1,8 +1,8 @@
-##### React
+#### React
  * https://react.dev
-##### Node Js
+#### Node Js
  * https://nodejs.org
-##### Vite
+#### Vite
  * https://vitejs.dev
-##### MongoDb
+#### MongoDb
  * https://www.mongodb.com
