@@ -36,8 +36,8 @@ sudo firewall-cmd --reload
 ```
 #### Start Nfs Server
 ```bash
-sudo systemctl start nfs-server
-sudo systemctl enable nfs-server
+sudo systemctl start vsftpd
+sudo systemctl enable vsftpd
 ```
 #### Test on Windows 11
 + Using Fife zilla client software  https://filezilla-project.org/
