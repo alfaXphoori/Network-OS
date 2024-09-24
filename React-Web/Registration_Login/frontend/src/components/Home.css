@@ -1,0 +1,125 @@
+/* Existing CSS */
+
+/* Animated Background Gradient */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-background {
+  background: linear-gradient(-45deg, #b9b9b9, #6e6e6e, rgba(46, 46, 46, 0.555));
+  background-size: 600% 600%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+/* Fade-in Animations */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+.fade-in-heading {
+  animation-delay: 0.5s;
+  color: rgb(255, 255, 255);
+}
+
+.fade-in-button {
+  animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Logo Container */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Common Logo Styles */
+.logo {
+  width: 150px;
+  height: auto;
+  margin: 0 15px;
+}
+
+/* React Logo Animation */
+.react-logo {
+  animation: spin 10s linear infinite;
+}
+
+/* Node.js Logo Animation */
+.nodejs-logo {
+  animation: bounce 2s infinite;
+}
+
+/* Nginx Logo Animation */
+.nginx-logo {
+  animation: pulse 2s infinite;
+}
+
+/* Docker Logo Animation */
+.docker-logo {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Animations */
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+}
+}
+
+/* Rest of your existing CSS */

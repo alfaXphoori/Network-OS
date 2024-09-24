@@ -1,0 +1,43 @@
+/* Animated Background Gradient */
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.register-container {
+    background: linear-gradient(-45deg, #b9b9b9, #6e6e6e, rgba(46, 46, 46, 0.555));
+    background-size: 400% 400%;
+    animation: backgroundAnimation 10s ease infinite;
+}
+
+/* Fade-in Animation for the Form */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.register-form {
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Button Hover Effect */
+.register-button {
+    transition: transform 0.2s ease;
+}
+
+.register-button:hover {
+    transform: scale(1.05);
+}
