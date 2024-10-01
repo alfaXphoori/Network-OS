@@ -5,6 +5,7 @@
 npm init -y
 ```
 ```bash
+npm install
 npm install express
 npm install cors
 npm install mongoose
