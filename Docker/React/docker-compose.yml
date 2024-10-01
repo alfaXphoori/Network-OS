@@ -1,0 +1,31 @@
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongodb_data:/data/db
+    networks:
+      - backend_network
+
+  nginx-web:
+    image: nginx:latest
+    container_name: nginx-web
+    ports:
+      - 8000:80
+    volumes:
+      - ./login_page:/usr/share/nginx/html
+    networks:
+      - backend_network
+
+  backend-node:
+    build: .
+    ports:
+      - 3001:3001
+    networks:
+      - backend_network
+
+networks:
+  backend_network:
