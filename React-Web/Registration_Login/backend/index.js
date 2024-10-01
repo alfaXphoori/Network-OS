@@ -11,7 +11,7 @@ app.use(cors());
 mongoose.connect('mongodb://www.ce.local:27017/react-log-user');
 
 app.get('/', (req, res) => {
-  res.send('OK')
+  res.send('Backend OK!')
 })
 
 app.post('/register', (req, res)=>{
