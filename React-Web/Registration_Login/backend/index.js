@@ -53,7 +53,7 @@ app.post('/login', (req, res)=>{
     })
 })
 
-app.listen(3001, () => {
-    console.log("Server listining on http://127.0.0.1:3001");
+app.listen(3001,'0.0.0.0',() => {
+    console.log("Server listining on port 3001");
 
 });
