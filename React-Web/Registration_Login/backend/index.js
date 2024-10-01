@@ -10,6 +10,10 @@ app.use(cors());
 
 mongoose.connect('mongodb://www.ce.local:27017/react-log-user');
 
+app.get('/', (req, res) => {
+  res.send('OK')
+})
+
 app.post('/register', (req, res)=>{
     // To post / insert data into database
 
