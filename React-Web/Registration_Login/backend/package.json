@@ -15,5 +15,5 @@
     "mongoose": "^7.8.2",
     "nodemon": "^3.0.1"
   },
-  "description": ""
+  "description": "```bash npm init -y ``` ```bash npm install npm install express npm install cors npm install mongoose ```"
 }
