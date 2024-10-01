@@ -12,5 +12,5 @@ npm install mongoose
 
 #### Run node backend
 ```bash
-npm index.js
+node index.js
 ```
