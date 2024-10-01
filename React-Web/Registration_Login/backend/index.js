@@ -11,7 +11,7 @@ app.use(cors());
 mongoose.connect('mongodb://www.ce.local:27017/react-log-user');
 
 app.get('/', (req, res) => {
-  res.send('OK')
+  res.send('Backend OK!')
 })
 
 app.post('/register', (req, res)=>{
@@ -53,7 +53,7 @@ app.post('/login', (req, res)=>{
     })
 })
 
-app.listen(3001, () => {
-    console.log("Server listining on http://127.0.0.1:3001");
+app.listen(3001,'0.0.0.0',() => {
+    console.log("Server listining on port 3001");
 
 });
