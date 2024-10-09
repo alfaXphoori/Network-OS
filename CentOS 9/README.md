@@ -1,0 +1,17 @@
+## CentOS 9 Stream
+- Basic CMD
+- DHCP
+- DNS
+- Share File
+    - Samba
+    - NFS
+    - FTP
+- Docker
+- Database
+    - MariaDB (PhpMyAdmin)
+    - MongoDB
+- Webserver
+    - Apache
+    - Nginx
+- Website
+    - React (Vite)

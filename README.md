@@ -1,3 +1,2 @@
-## CentOS
-Make Server For Use!\
-Install CentOS Stream 9
+## CentOS 9 Stream
+
