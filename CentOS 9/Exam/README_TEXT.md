@@ -16,4 +16,4 @@
 - index.php in Apache 
 - index.html in Nginx
 
-#### 4. Full Function                    (2 point)
+#### 4. Full Function                   (2 point)
