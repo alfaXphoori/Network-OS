@@ -1,4 +1,8 @@
-## Exam (20 point)
+## Exam (30 point)
+
+#### ส่งแก้ผ่าน Google Form
+https://forms.gle/XZTyzqJ2kWf11Pt1A
+
 #### 1. Create Web Server on Docker      (6 point)
 - Apache server         Port:11001
 ![netos1-1](https://github.com/user-attachments/assets/af538c70-0c82-4ab3-b83f-a60ff12a531e)
