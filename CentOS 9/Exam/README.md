@@ -2,7 +2,7 @@
 #### 1. Create Web Server on Docker      (6 point)
 - Apache server         Port:11001
 ![netos1-1](https://github.com/user-attachments/assets/af538c70-0c82-4ab3-b83f-a60ff12a531e)
-- Nginx server          Port:11 002
+- Nginx server          Port:11002
 ![netos1-2](https://github.com/user-attachments/assets/9b231299-86a1-47db-9044-4d64e2025aa9)
 #### 2. Create Database on Docker        (6 point)
 - MariaDB server        Port:10110
