@@ -10,7 +10,7 @@
     - Create Table      name exam
 - Phpmyadmin            Port:10021
 ![netos2-2](https://github.com/user-attachments/assets/ca018624-aa3a-47c3-8327-a3634c147c87)
-- Mondb server          Port:10022
+- Mongodb server          Port:10022
     - Create Database   name exam
     - Create Collection name exam
 ![netos2-1](https://github.com/user-attachments/assets/37ffae7c-e432-4228-b24a-ec2d2e97d8cb)
